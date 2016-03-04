@@ -1,0 +1,20 @@
+<script type='text/javascript'>
+var status_id = document.getElementById('issue_status_id');
+var done_ratio = document.getElementById('issue_done_ratio');
+if (status_id != null && done_ratio != null)
+	status_id.addEventListener('change', function() {
+		switch(status_id.value) {
+			<%
+				plugin = Redmine::Plugin.find(:redmine_semiauto_done_ratio)
+				setting = Setting["plugin_#{plugin.id}"] || plugin.settings[:default]
+				for v in setting
+			%>
+			<% if v[1] != "" %>
+			case '<%= v[0] %>':
+				done_ratio.value = '<%= v[1] %>';
+				break;
+			<% end %>
+			<% end %>
+		}
+	});
+</script>
