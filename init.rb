@@ -1,7 +1,7 @@
 require 'redmine'
 
 Redmine::Plugin.register :redmine_semiauto_done_ratio do
-  name 'Redmine Progress Update plugin'
+  name 'Redmine Semiauto Done Ratio plugin'
   author 'Eivy'
   description 'This is a plugin for Redmine'
   version '0.0.2'
